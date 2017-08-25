@@ -1,6 +1,7 @@
 package mang.no.study;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +10,7 @@ import javax.annotation.PostConstruct;
  * Created by mrana on 25.08.2017.
  */
 @Configuration
+@ComponentScan(basePackages = {"mang.no.study"})
 public class SpringConfig {
 
     @Bean
@@ -21,8 +23,8 @@ public class SpringConfig {
         return "JavaConfigMangesh";
     }
 
-    @Bean
+    /*@Bean
     public PostProcessor postProcessor() {
         return new PostProcessor();
-    }
+    }*/
 }
