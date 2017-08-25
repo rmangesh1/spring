@@ -3,6 +3,8 @@ package mang.no.study;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.PostConstruct;
+
 /**
  * Created by mrana on 25.08.2017.
  */
@@ -17,5 +19,10 @@ public class SpringConfig {
     @Bean
     public String message() {
         return "JavaConfigMangesh";
+    }
+
+    @Bean
+    public PostProcessor postProcessor() {
+        return new PostProcessor();
     }
 }

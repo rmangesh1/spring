@@ -9,14 +9,18 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public class PostProcessor implements BeanPostProcessor {
 
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        Envelope envelope = (Envelope) bean;
-        System.out.println("postProcessBeforeInitialization. Bean message state = " + envelope.getMessage());
+        if(bean instanceof Envelope) {
+            Envelope envelope = (Envelope) bean;
+            System.out.println("postProcessBeforeInitialization. Bean message state = " + envelope.getMessage());
+        }
         return bean;
     }
 
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        Envelope envelope = (Envelope) bean;
-        System.out.println("postProcessAfterInitialization. Bean message state = " + envelope.getMessage());
+        if(bean instanceof Envelope) {
+            Envelope envelope = (Envelope) bean;
+            System.out.println("postProcessAfterInitialization. Bean message state = " + envelope.getMessage());
+        }
         return bean;
     }
 }
