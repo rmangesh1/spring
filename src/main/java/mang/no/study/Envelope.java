@@ -18,7 +18,14 @@ public class Envelope implements BeanNameAware, BeanFactoryAware, InitializingBe
     }
 
     public Envelope(String message) {
+        System.out.println("Arg constructor");
         this.message = message;
+    }
+
+    public Envelope(String message, BeanFactory beanFactory, String beanName) {
+        this.message = message;
+        this.beanFactory = beanFactory;
+        this.beanName = beanName;
     }
 
     public String getMessage() {
@@ -59,5 +66,13 @@ public class Envelope implements BeanNameAware, BeanFactoryAware, InitializingBe
 
     public void afterPropertiesSet() throws Exception {
         System.out.println("After properties are set. Message = " + message);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Envelope{");
+        sb.append("message='").append(message).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
